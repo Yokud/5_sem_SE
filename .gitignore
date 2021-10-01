@@ -280,7 +280,7 @@ _UpgradeReport_Files/
 # Directories #
 ###############
 bin/
-obj/
+obj\
 TestResults/
 ###################
 # Web publish log #
