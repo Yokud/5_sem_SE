@@ -1,0 +1,16 @@
+D:\Repos\5_sem_SE\AA\lab_01\src\LevenshteinDistance\bin\Debug\net5.0\LevenshteinDistance.exe
+D:\Repos\5_sem_SE\AA\lab_01\src\LevenshteinDistance\bin\Debug\net5.0\LevenshteinDistance.deps.json
+D:\Repos\5_sem_SE\AA\lab_01\src\LevenshteinDistance\bin\Debug\net5.0\LevenshteinDistance.runtimeconfig.json
+D:\Repos\5_sem_SE\AA\lab_01\src\LevenshteinDistance\bin\Debug\net5.0\LevenshteinDistance.runtimeconfig.dev.json
+D:\Repos\5_sem_SE\AA\lab_01\src\LevenshteinDistance\bin\Debug\net5.0\LevenshteinDistance.dll
+D:\Repos\5_sem_SE\AA\lab_01\src\LevenshteinDistance\bin\Debug\net5.0\ref\LevenshteinDistance.dll
+D:\Repos\5_sem_SE\AA\lab_01\src\LevenshteinDistance\bin\Debug\net5.0\LevenshteinDistance.pdb
+D:\Repos\5_sem_SE\AA\lab_01\src\LevenshteinDistance\obj\Debug\net5.0\LevenshteinDistance.csproj.AssemblyReference.cache
+D:\Repos\5_sem_SE\AA\lab_01\src\LevenshteinDistance\obj\Debug\net5.0\LevenshteinDistance.GeneratedMSBuildEditorConfig.editorconfig
+D:\Repos\5_sem_SE\AA\lab_01\src\LevenshteinDistance\obj\Debug\net5.0\LevenshteinDistance.AssemblyInfoInputs.cache
+D:\Repos\5_sem_SE\AA\lab_01\src\LevenshteinDistance\obj\Debug\net5.0\LevenshteinDistance.AssemblyInfo.cs
+D:\Repos\5_sem_SE\AA\lab_01\src\LevenshteinDistance\obj\Debug\net5.0\LevenshteinDistance.csproj.CoreCompileInputs.cache
+D:\Repos\5_sem_SE\AA\lab_01\src\LevenshteinDistance\obj\Debug\net5.0\LevenshteinDistance.dll
+D:\Repos\5_sem_SE\AA\lab_01\src\LevenshteinDistance\obj\Debug\net5.0\ref\LevenshteinDistance.dll
+D:\Repos\5_sem_SE\AA\lab_01\src\LevenshteinDistance\obj\Debug\net5.0\LevenshteinDistance.pdb
+D:\Repos\5_sem_SE\AA\lab_01\src\LevenshteinDistance\obj\Debug\net5.0\LevenshteinDistance.genruntimeconfig.cache
