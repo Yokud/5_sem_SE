@@ -11,3 +11,4 @@ plt.plot(x, y2, label = "Сортировка выбором")
 plt.plot(x, y3, label = "Быстрая сортировка")
 plt.legend()
 plt.show()
+
