@@ -43,6 +43,16 @@ namespace MultMatrix
                     data[i, j] = i + j;
         }
 
+        public void PrintMatrix()
+        {
+            for (int i = 0; i < n; i++)
+            {
+                for (int j = 0; j < m; j++)
+                    Console.Write(this[i, j].ToString() + ' ');
+                Console.WriteLine();
+            }
+        }
+
         public Matrix MultiplyStandart(Matrix matr)
         {
             Matrix result = new Matrix(n, matr.M);
@@ -178,14 +188,39 @@ namespace MultMatrix
 
         static void Main(string[] args)
         {
-            int times = 10;
+            Matrix a = new Matrix(2, 2);
+            Matrix b = new Matrix(2, 3);
 
-            for (int i = 100; i <= 1000; i += 100)
-                Console.WriteLine(string.Format("{0}\t{1,10:f3}\t{2,10:f3}\t{3,10:f3}", i, CheckTime(0, i, times), CheckTime(1, i, times), CheckTime(2, i, times)));
+            a[0, 0] = 1;
+            a[0, 1] = 2;
+            a[1, 0] = 3;
+            a[1, 1] = 4;
+
+            b[0, 0] = 2;
+            b[0, 1] = 3;
+            b[0, 2] = 7;
+            b[1, 0] = 5;
+            b[1, 1] = 1;
+            b[1, 2] = 10;
+
+            Matrix c = a.MultiplyStandart(b);
+
+            a.PrintMatrix();
             Console.WriteLine();
-            for (int i = 101; i <= 1001; i += 100)
-                Console.WriteLine(string.Format("{0}\t{1,10:f3}\t{2,10:f3}\t{3,10:f3}", i, CheckTime(0, i, times), CheckTime(1, i, times), CheckTime(2, i, times)));
+
+            b.PrintMatrix();
             Console.WriteLine();
+
+            c.PrintMatrix();
+
+            //int times = 10;
+
+            //for (int i = 100; i <= 1000; i += 100)
+            //    Console.WriteLine(string.Format("{0}\t{1,10:f3}\t{2,10:f3}\t{3,10:f3}", i, CheckTime(0, i, times), CheckTime(1, i, times), CheckTime(2, i, times)));
+            //Console.WriteLine();
+            //for (int i = 101; i <= 1001; i += 100)
+            //    Console.WriteLine(string.Format("{0}\t{1,10:f3}\t{2,10:f3}\t{3,10:f3}", i, CheckTime(0, i, times), CheckTime(1, i, times), CheckTime(2, i, times)));
+            //Console.WriteLine();
         }
     }
 }

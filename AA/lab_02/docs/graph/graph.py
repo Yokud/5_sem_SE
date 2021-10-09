@@ -10,5 +10,6 @@ plt.plot(x, y1, label = "Стандартный")
 plt.plot(x, y2, label = "Виноград")
 plt.plot(x, y3, label = "Оптимизированный Виноград")
 plt.legend()
+plt.xticks(x)
 plt.show()
 
