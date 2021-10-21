@@ -172,44 +172,44 @@ namespace SortingAlgs
             Console.WriteLine("\n");
 
 
-            Console.Write("Buble\nOrdered:  ");
-            for (int i = 1; i < 11; i++)
-                Console.Write(string.Format("{0,8:f2} ", CheckTime(BubleFlagSort, GenOrderedArr(100 * i), 1000)));
-            Console.WriteLine();
-            Console.Write("Reversed: ");
-            for (int i = 1; i < 11; i++)
-                Console.Write(string.Format("{0,8:f2} ", CheckTime(BubleFlagSort, GenReversedArr(100 * i), 1000)));
-            Console.WriteLine();
-            Console.Write("Random:   ");
-            for (int i = 1; i < 11; i++)
-                Console.Write(string.Format("{0,8:f2} ", CheckTime(BubleFlagSort, GenRandomArr(100 * i), 1000)));
-            Console.WriteLine();
+            //Console.Write("Buble\nOrdered:  ");
+            //for (int i = 1; i < 11; i++)
+            //    Console.Write(string.Format("{0,8:f2} ", CheckTime(BubleFlagSort, GenOrderedArr(100 * i), 1000)));
+            //Console.WriteLine();
+            //Console.Write("Reversed: ");
+            //for (int i = 1; i < 11; i++)
+            //    Console.Write(string.Format("{0,8:f2} ", CheckTime(BubleFlagSort, GenReversedArr(100 * i), 1000)));
+            //Console.WriteLine();
+            //Console.Write("Random:   ");
+            //for (int i = 1; i < 11; i++)
+            //    Console.Write(string.Format("{0,8:f2} ", CheckTime(BubleFlagSort, GenRandomArr(100 * i), 1000)));
+            //Console.WriteLine();
 
-            Console.Write("\nSelection\nOrdered:  ");
-            for (int i = 1; i < 11; i++)
-                Console.Write(string.Format("{0,8:f2} ", CheckTime(SelectionSort, GenOrderedArr(100 * i), 1000)));
-            Console.WriteLine();
-            Console.Write("Reversed: ");
-            for (int i = 1; i < 11; i++)
-                Console.Write(string.Format("{0,8:f2} ", CheckTime(SelectionSort, GenReversedArr(100 * i), 1000)));
-            Console.WriteLine();
-            Console.Write("Random:   ");
-            for (int i = 1; i < 11; i++)
-                Console.Write(string.Format("{0,8:f2} ", CheckTime(SelectionSort, GenRandomArr(100 * i), 1000)));
-            Console.WriteLine();
+            //Console.Write("\nSelection\nOrdered:  ");
+            //for (int i = 1; i < 11; i++)
+            //    Console.Write(string.Format("{0,8:f2} ", CheckTime(SelectionSort, GenOrderedArr(100 * i), 1000)));
+            //Console.WriteLine();
+            //Console.Write("Reversed: ");
+            //for (int i = 1; i < 11; i++)
+            //    Console.Write(string.Format("{0,8:f2} ", CheckTime(SelectionSort, GenReversedArr(100 * i), 1000)));
+            //Console.WriteLine();
+            //Console.Write("Random:   ");
+            //for (int i = 1; i < 11; i++)
+            //    Console.Write(string.Format("{0,8:f2} ", CheckTime(SelectionSort, GenRandomArr(100 * i), 1000)));
+            //Console.WriteLine();
 
-            Console.Write("\nQuick\nOrdered:  ");
-            for (int i = 1; i < 11; i++)
-                Console.Write(string.Format("{0,8:f2} ", CheckTime(QuickSort, GenOrderedArr(100 * i), 1000)));
-            Console.WriteLine();
-            Console.Write("Reversed: ");
-            for (int i = 1; i < 11; i++)
-                Console.Write(string.Format("{0,8:f2} ", CheckTime(QuickSort, GenReversedArr(100 * i), 1000)));
-            Console.WriteLine();
-            Console.Write("Random:   ");
-            for (int i = 1; i < 11; i++)
-                Console.Write(string.Format("{0,8:f2} ", CheckTime(QuickSort, GenRandomArr(100 * i), 1000)));
-            Console.WriteLine();
+            //Console.Write("\nQuick\nOrdered:  ");
+            //for (int i = 1; i < 11; i++)
+            //    Console.Write(string.Format("{0,8:f2} ", CheckTime(QuickSort, GenOrderedArr(100 * i), 1000)));
+            //Console.WriteLine();
+            //Console.Write("Reversed: ");
+            //for (int i = 1; i < 11; i++)
+            //    Console.Write(string.Format("{0,8:f2} ", CheckTime(QuickSort, GenReversedArr(100 * i), 1000)));
+            //Console.WriteLine();
+            //Console.Write("Random:   ");
+            //for (int i = 1; i < 11; i++)
+            //    Console.Write(string.Format("{0,8:f2} ", CheckTime(QuickSort, GenRandomArr(100 * i), 1000)));
+            //Console.WriteLine();
         }
     }
 }
