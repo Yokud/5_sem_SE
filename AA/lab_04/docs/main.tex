@@ -127,7 +127,7 @@
 	\item выбрать средства реализации;
 	\item реализовать однопоточный и многопоточный алгоритм вычисления среднего степенного для строк матрицы;
 	\item протестировать реализованные алгоритмы;
-	\item провести сравнительный анализ алгоритмов на основе экспериментальных данных: время выполнения в зависимости от количества потоков.
+	\item провести сравнительный анализ алгоритмов на основе экспериментальных данных о времени выполнения в зависимости от количества потоков.
 \end{itemize}
 
 
@@ -146,20 +146,17 @@
 		a_{l1} & a_{l2} & \ldots & a_{nm}
 	\end{pmatrix},
 \end{equation}
-
 тогда вектор $B$
 \begin{equation}
 	B_{n} = \begin{pmatrix}
 		b_{1} & b_{2} & \ldots & b_{n}\\
 	\end{pmatrix},
 \end{equation}
-
 где
 \begin{equation}
 	\label{eq:M}
-	b_{i} = \sqrt[d]{\sum_{j=1}^{m} a_{ij} ^ d} \quad, (j=\overline{1,m})
+	b_{i} = \sqrt[d]{\frac{\sum_{j=1}^{m} a_{ij} ^ d}{m}} \quad, (j=\overline{1,m})
 \end{equation}
-
 будет называться средним степенным строки матрицы $A$ [1].
 
 \section{Параллельный алгоритм}
@@ -221,7 +218,7 @@ public double[] RowsGenMean(double power)
 	{
 		double sum = 0;
 		for (int j = 0; j < m; j++)
-		sum += Math.Pow(matrix[i, j], power);
+			sum += Math.Pow(matrix[i, j], power);
 		
 		gen_means[i] = Math.Pow(sum / m, 1.0 / power);
 	}
@@ -248,7 +245,7 @@ public double[] RowsGenMeanParallel(double power, int num_threads = 1)
 	}
 	
 	foreach (Thread t in threads)
-	t.Join();
+		t.Join();
 	
 	return gen_means;
 	
@@ -262,7 +259,7 @@ public double[] RowsGenMeanParallel(double power, int num_threads = 1)
 		{
 			double sum = 0;
 			for (int j = 0; j < m; j++)
-			sum += Math.Pow(matrix[i, j], pow);
+				sum += Math.Pow(matrix[i, j], pow);
 			
 			gen_means[i] = Math.Pow(sum / m, 1.0 / pow);
 		}
@@ -364,24 +361,24 @@ public double[] RowsGenMeanParallel(double power, int num_threads = 1)
 Ниже приведены технические характеристики устройства, на котором было проведено тестирование ПО:
 
 \begin{itemize}
-	\item Операционная система: Windows 10 Home 64-bit [4];
-	\item Оперативная память: 16 GB;
-	\item Процессор: 4.0 GHz 4‑ядерный процессор Intel Core i7-4790K [5].
+	\item операционная система: Windows 10 Home 64-bit [4];
+	\item оперативная память: 16 ГБ;
+	\item процессор: 4.0 GHz 4‑ядерный процессор Intel Core i7-4790K [5].
 
 \end{itemize}
 
 \section{Время выполнения реализаций алгоритмов}
 
-Для сравнительного анализа времени выполнения реализаций алгоритмов был проведен эксперимент. Для замеров были сформированы следующие данные:
+Для сравнительного анализа времени выполнения реализаций алгоритмов были проведены эксперименты. Для замеров были сформированы следующие данные:
 \begin{itemize}
 	\item матрица со случайными числами размером 1024 на 1024;
 	\item значение степени равно 2.
 \end{itemize}
 
-В таблице \ref{time} представлены результаты замеров. Время измерялось 100 раз для каждого числа потоков, после усреднялось. 
+В таблице \ref{time1} представлены результаты замеров. Время измерялось 100 раз для каждого числа потоков, после усреднялось. 
 
 \begin{table} [H]
-	\label{time}
+	\label{time1}
 	\caption{Таблица времени выполнения (в тиках) алгоритмов при разном числе потоков}
 	\begin{center}
 		\begin{tabular}{|c c|} 
