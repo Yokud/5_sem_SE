@@ -27,25 +27,25 @@ def GenTables(n: int):
         shops[i] = (*shops[i], id_merch, id_town)
         chain_stores.append((id_merch, id_town, rnd.randint(10000, 100000)))
 
-    with open("C:\\PostgreSQL_data\\merchants.csv", "w", newline='') as csvfile:
+    with open("C:\\PostgreSQL_data\\merchants.csv", "w", newline='', encoding="utf-8") as csvfile:
         writer = csv.writer(csvfile)
 
         for i in range(1, n + 1):
             writer.writerow([i, *merchants[i - 1]], )
 
-    with open("C:\\PostgreSQL_data\\shops.csv", "w", newline='') as csvfile:
+    with open("C:\\PostgreSQL_data\\shops.csv", "w", newline='', encoding="utf-8") as csvfile:
         writer = csv.writer(csvfile)
 
         for i in range(1, n + 1):
             writer.writerow([i, *shops[i - 1]])
 
-    with open("C:\\PostgreSQL_data\\towns.csv", "w", newline='') as csvfile:
+    with open("C:\\PostgreSQL_data\\towns.csv", "w", newline='', encoding="utf-8") as csvfile:
         writer = csv.writer(csvfile)
 
         for i in range(1, n + 1):
             writer.writerow([i, *towns[i - 1]])
 
-    with open("C:\\PostgreSQL_data\\chain_stores.csv", "w", newline='') as csvfile:
+    with open("C:\\PostgreSQL_data\\chain_stores.csv", "w", newline='', encoding="utf-8") as csvfile:
         writer = csv.writer(csvfile)
 
         for i in range(n):
