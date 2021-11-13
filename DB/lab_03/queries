@@ -215,7 +215,7 @@ drop view towns_view;
 
 create or replace function TownInsertInfo() returns trigger as $$
 begin
-	raise notice 'Новое поселение было добавлено';
+	raise notice 'Новое поселение не будет добавлено';
 	
 	return new;
 end;
