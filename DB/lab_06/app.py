@@ -37,7 +37,7 @@ cur = conn.cursor()
 print("Программа взаимодействия с базой данных торговцев Скайрима\n" + '-' * 125)
 comm = -1
 while comm != 0:
-    print("\t1. Определить среднее арифметическое населения поселений \n\
+    print("    1. Определить среднее арифметическое населения поселений \n\
     2. Найти магазины в городах \n\
     3. Вывести информацию о поселениях и отследить мин., макс. и среднее арифм. населения по правителям городов \n\
     4. Узнать ID базы данных \n\
@@ -46,7 +46,8 @@ while comm != 0:
     7. Изменить правителя в указанном по ID городе \n\
     8. Узнать имя текущего пользователя \n\
     9. Создать таблицу магазинов в городах \n\
-    10. Выполнить вставку данных в таблицу магазинов в городах\n\n\
+    10. Выполнить вставку данных в таблицу магазинов в городах\n\
+    11. Изменить торговца у указанного по ID магазина\n\n\
     0. Выход\n")
 
     comm = int(input("Введите команду: "))
@@ -66,10 +67,10 @@ while comm != 0:
     elif comm == 3:
         query = "with Towns_descr (Town_name, Ruler_name, Population, Type, Min_Popul, Max_Popul, " \
                 "Avg_Popul) as " \
-                "(select Town_name, Ruler, Population, Type, \
-                    min(Population) over (partition by Ruler order by Town_name) as Min_population,\
-                    max(Population) over (partition by Ruler order by Town_name) as Max_population,\
-                    avg(Population) over (partition by Ruler order by Town_name) as Avg_population\
+                "(select Name, Ruler, Population, Type, \
+                    min(Population) over (partition by Ruler order by Name) as Min_population,\
+                    max(Population) over (partition by Ruler order by Name) as Max_population,\
+                    avg(Population) over (partition by Ruler order by Name) as Avg_population\
                   from Towns)\
                 select *\
                 from Towns_descr;"
@@ -89,7 +90,7 @@ while comm != 0:
                     end;\
                     $$ language plpgsql;\
                     \
-                    select Town_name, Population, AvgPopulationDiff(Population)\
+                    select Name, Population, AvgPopulationDiff(Population)\
                     from Towns;"
         cur.execute(query)
 
@@ -100,10 +101,10 @@ while comm != 0:
         query = "create or replace function BookShops(town_id integer) returns table(shop_name nchar(32), can_invest " \
                 "bool, hours_start time, hours_end time, town_name nchar(32)) as $$\
                 begin \
-                    create temp table tbl (shop_name nchar(32), can_invest bool, hours_start time, hours_end time, town_name nchar(32));\
+                    create temp table if not exists tbl (shop_name nchar(32), can_invest bool, hours_start time, hours_end time, town_name nchar(32));\
                     \
                     insert into tbl\
-                    select Shops.Name, Shops.Can_invest, Shops.Hours_start, Shops.Hours_end, Towns.Town_name\
+                    select Shops.Name, Shops.Can_invest, Shops.Hours_start, Shops.Hours_end, Towns.Name\
                     from Towns join Shops on Towns.Id = Shops.id_town\
                     where Towns.Id = town_id and Merchandise = 'Книги';\
                     \
@@ -140,7 +141,7 @@ while comm != 0:
         result = cur.fetchone()
         print("Текущий пользователь: " + str(result[0]))
     elif comm == 9:
-        query = "select Shops.Name as Shop_Name, Shops.Merchandise, Shops.Can_invest, Towns.Town_name\
+        query = "select Shops.Name as Shop_Name, Shops.Merchandise, Shops.Can_invest, Towns.Name\
                     into Shops_in_cities\
                     from Shops join Towns on Towns.Id = Shops.Id_town\
                     where Towns.Type = 'Город';"
@@ -167,6 +168,24 @@ while comm != 0:
         query = "select * from Shops_in_cities;"
         cur.execute(query)
         print_table(cur)
+    elif comm == 11:
+        id_shop = int(input("Введите ID магазина: "))
+        id_merchant = input("Введите ID нового торговца: ")
+
+        query = "create or replace procedure ChangeMerchant(shop_id int, merch_id int) as $$\
+                begin\
+                    update Shops\
+                    set id_merchant = merch_id\
+                    where Id = shop_id;\
+                end;\
+                $$ language plpgsql;\
+                \
+                call ChangeRuler({0}, '{1}');".format(id_shop, id_merchant)
+
+        cur.execute(query)
+        conn.commit()
+
+        print("Имя нового торговца магазина с ID {0}: {1}".format(id_shop, id_merchant))
     elif comm == 0:
         print("Завершение работы...")
         break

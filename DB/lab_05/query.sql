@@ -1,15 +1,15 @@
-copy (select row_to_json(m) from Merchants m) to 'D:\Repos\5_sem_SE\DB\lab_05\dataset\merchants.json';
-copy (select row_to_json(s) from Shops s) to 'D:\Repos\5_sem_SE\DB\lab_05\dataset\shops.json';
-copy (select row_to_json(t) from Towns t) to 'D:\Repos\5_sem_SE\DB\lab_05\dataset\towns.json';
-copy (select row_to_json(c) from Chain_stores c) to 'D:\Repos\5_sem_SE\DB\lab_05\dataset\chain_stores.json';
+copy (select row_to_json(m) from Merchants m) to 'D:\Repos\GitHub\5_sem_SE\DB\lab_05\dataset\merchants.json';
+copy (select row_to_json(s) from Shops s) to 'D:\Repos\GitHub\5_sem_SE\DB\lab_05\dataset\shops.json';
+copy (select row_to_json(t) from Towns t) to 'D:\Repos\GitHub\5_sem_SE\DB\lab_05\dataset\towns.json';
+copy (select row_to_json(c) from Chain_stores c) to 'D:\Repos\GitHub\5_sem_SE\DB\lab_05\dataset\chain_stores.json';
 
 
 drop table if exists merchants_from_json;
 create table merchants_from_json(
     Id integer primary key,
-	Name nchar(32) not null,
-	Gender nchar(10) not null,
-	Race nchar(10) not null,
+	Name text not null,
+	Gender text not null,
+	Race text not null,
 	Date_of_birth date not null
 );
 
@@ -18,7 +18,7 @@ create table temp (
     data jsonb
 );
 
-copy temp from 'D:\Repos\5_sem_SE\DB\lab_05\dataset\merchants.json';
+copy temp from 'D:\Repos\GitHub\5_sem_SE\DB\lab_05\dataset\merchants.json';
 insert into merchants_from_json
 select (data->>'id')::integer, (data->>'name')::nchar(32), (data->>'gender')::nchar(10), (data->>'race')::nchar(10), (data->>'date_of_birth')::date
 from temp;
