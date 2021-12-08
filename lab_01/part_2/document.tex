@@ -1,0 +1,121 @@
+\documentclass[a4paper,12pt]{extreport}
+
+\usepackage{cmap}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english,russian]{babel}
+
+\usepackage{amsmath}
+
+\usepackage{geometry}
+\geometry{left=30mm}
+\geometry{right=15mm}
+\geometry{top=20mm}
+\geometry{bottom=20mm}
+
+\usepackage{titlesec}
+\titleformat{\section}
+{\normalsize\bfseries}
+{\thesection}
+{1em}{}
+\titlespacing*{\chapter}{0pt}{-30pt}{8pt}
+\titlespacing*{\section}{\parindent}{*4}{*4}
+\titlespacing*{\subsection}{\parindent}{*4}{*4}
+
+\usepackage{setspace}
+\onehalfspacing
+
+\frenchspacing
+\usepackage{indentfirst}
+
+\usepackage{titlesec}
+\titleformat{\chapter}{\LARGE\bfseries}{\thechapter}{18pt}{\LARGE\bfseries}
+\titleformat{\section}{\Large\bfseries}{\thesection}{18pt}{\Large\bfseries}
+
+\usepackage{xcolor}
+
+
+\usepackage{pgfplots}
+\usetikzlibrary{datavisualization}
+\usetikzlibrary{datavisualization.formats.functions}
+
+\usepackage{graphicx}
+\newcommand{\img}[3] {
+	\begin{figure}[h]
+		\center{\includegraphics[height=#1]{assets/img/#2}}
+		\caption{#3}
+		\label{img:#2}
+	\end{figure}
+}
+
+\newcommand{\imgw}[3] {
+	\begin{figure}[h]
+		\center{\includegraphics[width=#1]{assets/img/#2}}
+		\caption{#3}
+		\label{img:#2}
+	\end{figure}
+}
+
+\usepackage[justification=centering]{caption}
+\usepackage[unicode,pdftex]{hyperref}
+\hypersetup{hidelinks}
+\newcommand{\code}[1]{\texttt{#1}}
+\usepackage{icomma}
+\usepackage{csvsimple}
+\usepackage{svg}
+
+\newcommand\Tstrut{\rule{0pt}{2.6ex}}       % "top" strut
+\newcommand\Bstrut{\rule[-0.9ex]{0pt}{0pt}} % "bottom" strut
+\newcommand{\TBstrut}{\Tstrut\Bstrut} % top&bottom struts
+
+\begin{document}
+\newgeometry{pdftex, left=2cm, right=2cm, top=2.5cm, bottom=2.5cm}
+\fontsize{12pt}{12pt}\selectfont
+\noindent \begin{minipage}{0.15\textwidth}
+	\includegraphics[width=\linewidth]{b_logo.jpg}
+\end{minipage}
+\noindent\begin{minipage}{0.9\textwidth}\centering
+	\textbf{Министерство науки и высшего образования Российской Федерации}\\
+	\textbf{Федеральное государственное бюджетное образовательное учреждение высшего образования}\\
+	\textbf{«Московский государственный технический университет имени Н.Э.~Баумана}\\
+	\textbf{(национальный исследовательский университет)»}\\
+	\textbf{(МГТУ им. Н.Э.~Баумана)}
+\end{minipage}
+
+\noindent\rule{18cm}{3pt}
+\newline\newline
+\noindent ФАКУЛЬТЕТ $\underline{\text{«Информатика и системы управления»}}$ \newline\newline
+\noindent КАФЕДРА $\underline{\text{«Программное обеспечение ЭВМ и информационные технологии»}}$\newline\newline\newline\newline\newline\newline\newline
+
+
+\begin{center}
+	\Large\textbf{Отчет по лабораторной работе №1 (часть 2) по дисциплине <<Операционные системы>>}
+\end{center}
+
+""\newline\newline
+
+\noindent\textbf{Тема} $\underline{\text{Прерывания таймера в Windows и UNIX~~~~~~~}}$\newline\newline
+\noindent\textbf{Студент} $\underline{\text{Малышев И. А.~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~}}$\newline\newline
+\noindent\textbf{Группа} $\underline{\text{ИУ7-51Б~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~}}$\newline\newline
+\noindent\textbf{Преподаватель} $\underline{\text{Рязанова Н. Ю.~~~~~~~~~~~~~~~~~~~~~~~~~}}$\newline
+
+\begin{center}
+	\vfill
+	Москва~---~\the\year
+	~г.
+\end{center}
+\restoregeometry
+
+\newpage
+
+\chapter{Функции обработчика прерывания от системного таймера в защищённом режиме}
+
+\section{Windows-системы}
+
+Функции обработчика прерывания от системного таймера \textbf{по тику}:
+\begin{itemize}
+	\item инкремент счётчика системного времени;
+	\item 
+\end{itemize}
+
+\end{document}
