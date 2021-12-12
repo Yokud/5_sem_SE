@@ -9,6 +9,7 @@ namespace lab_6_Ant
     class AntAlgorithm
     {
         public static readonly Random r = new Random();
+        static readonly double eps = 1e-6; 
         
         /// <summary>
         /// Нахождение кратчайшего маршрута муравьиным алгоритмом
@@ -50,6 +51,7 @@ namespace lab_6_Ant
                                 sumChance += Math.Pow(pheromones[curCity][cityId], alpha) * Math.Pow(1.0 / (map.distance[curCity][cityId]), beta); // сумма вероятностей посещения всех городов
                             }
                         }
+
                         // Выбор следующего города муравья
                         double x = r.NextDouble();
                         int k = 0;
@@ -65,12 +67,18 @@ namespace lab_6_Ant
                         k--;
                         ants[j].VisitedTown(k);
                         pheromonesIter[curCity][k] += Q / map.distance[curCity][k];
+                        pheromonesIter[k][curCity] += Q / map.distance[curCity][k];
                     }
 
                     // Испарение феромонов
                     for (int ii = 0; ii < n; ii++)
                         for (int j = 0; j < n; j++)
-                            pheromones[ii][j] = (1 - ro) * pheromones[ii][j] + pheromonesIter[ii][j];
+                        {
+                            pheromones[ii][j] = pheromones[j][ii] = (1 - ro) * pheromones[ii][j] + pheromonesIter[ii][j];
+
+                            if (pheromones[ii][j] < eps)
+                                pheromones[ii][j] = pheromones[j][ii] = eps;
+                        }
                 }
                 
                 // Находим минимальные пути этого дня
