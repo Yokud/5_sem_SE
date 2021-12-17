@@ -135,7 +135,14 @@ namespace lab_07_Dict_Search
         public string ClusterSearch(string key, out int cmp_cnt)
         {
             string cluster_key = key[0].ToString();
-            return BinarySearch(key, clusters[cluster_key].Key, clusters[cluster_key].Value, out cmp_cnt);
+
+            if (clusters.ContainsKey(cluster_key))
+                return BinarySearch(key, clusters[cluster_key].Key, clusters[cluster_key].Value, out cmp_cnt);
+            else
+            {
+                cmp_cnt = 0;
+                return null;
+            }
         }
 
         public KeyValuePair<string, string> this[int index]

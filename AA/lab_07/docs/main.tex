@@ -187,7 +187,7 @@
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[scale=0.625]{simple_search.drawio.png}
+	\includegraphics[scale=0.8]{simple_search.drawio.png}
 	\caption{Схема алгоритма полного перебора.}
 	\label{fig:mpr}
 \end{figure}
@@ -232,7 +232,7 @@ public string LinearSearch(string key, out int cmp_cnt)
 	{
 		cmp_cnt++;
 		if (d.Key == key)
-		return d.Value;
+			return d.Value;
 	}
 	
 	return null;
@@ -252,11 +252,11 @@ public string BinarySearch(string key, int left, int right, out int cmp_cnt)
 		
 		cmp_cnt++;
 		if ((cmp = key.CompareTo(this[mid].Key)) > 0)
-		left = mid + 1;
+			left = mid + 1;
 		else if (cmp < 0)
-		right = mid - 1;
+			right = mid - 1;
 		else
-		return dict[mid].Value;
+			return dict[mid].Value;
 	}
 	
 	return null;
@@ -270,9 +270,9 @@ public void Clusterize()
 	{
 		string key = dict[i].Key[0].ToString();
 		if (clusters.ContainsKey(key))
-		clusters[key] = new KeyValuePair<int, int>(Math.Min(clusters[key].Key, i), Math.Max(clusters[key].Value, i));
+			clusters[key] = new KeyValuePair<int, int>(Math.Min(clusters[key].Key, i), Math.Max(clusters[key].Value, i));
 		else
-		clusters.Add(key, new KeyValuePair<int, int>(i, i));
+			clusters.Add(key, new KeyValuePair<int, int>(i, i));
 	}
 }
 
@@ -284,7 +284,7 @@ public string ClusterSearch(string key, out int cmp_cnt)
 \end{lstlisting}
 \captionsetup{singlelinecheck = false, justification=centering}
 
-\section{Тестовые данные}
+\section{Результаты тестирования}
 
 В таблице 3.1 приведены тестовые данные, где ПП -- полный перебор, ДП -- двоичный поиск, ЧА -- частотный анализ. Все тесты были пройденны успешно.
 
@@ -335,14 +335,14 @@ public string ClusterSearch(string key, out int cmp_cnt)
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[scale=0.7]{lin_search.png}
+	\includegraphics[scale=0.8]{lin_search.png}
 	\caption{Анализ количества сравнений для линейного поиска.}
 	\label{fig:mpr}
 \end{figure}
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[scale=0.7]{bin_search.png}
+	\includegraphics[scale=0.8]{bin_search.png}
 	\caption{Анализ количества сравнений для двоичного поиска.}
 	\label{fig:mpr}
 
@@ -350,21 +350,21 @@ public string ClusterSearch(string key, out int cmp_cnt)
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[scale=0.7]{bin_search_sorted.png}
+	\includegraphics[scale=0.8]{bin_search_sorted.png}
 	\caption{Анализ количества сравнений для двоичного поиска (отсортировано по количеству сравнений).}
 	\label{fig:mpr}
 \end{figure}
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[scale=0.55]{clust_search.png}
+	\includegraphics[scale=0.8]{clust_search.png}
 	\caption{Анализ количества сравнений для поиска с использованием частотного анализа.}
 	\label{fig:mpr}
 \end{figure}
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[scale=0.55]{clust_search_sorted.png}
+	\includegraphics[scale=0.8]{clust_search_sorted.png}
 	\caption{Анализ количества сравнений для поиска с использованием частотного анализа (отсортировано по количеству сравнений).}
 	\label{fig:mpr}
 \end{figure}

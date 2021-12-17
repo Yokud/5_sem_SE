@@ -6,12 +6,14 @@ namespace lab_07_Dict_Search
 {
     class Program
     {
+        static string path = @"D:\Repos\GitHub\5_sem_SE\AA\lab_07\src\src_data\";
+
         static void Main(string[] args)
         {
-            MyDict temp = new MyDict(@"D:\Repos\5_sem_SE\AA\lab_07\src\data.txt");
+            MyDict temp = new MyDict(path + "data.txt");
             int cmps;
 
-            using (StreamWriter f = new StreamWriter(@"D:\Repos\5_sem_SE\AA\lab_07\src\lin_search.txt"))
+            using (StreamWriter f = new StreamWriter(path + "lin_search.txt"))
             {
                 int i = 0;
                 foreach (var key in temp.Keys)
@@ -22,7 +24,7 @@ namespace lab_07_Dict_Search
                 }
             }
 
-            using (StreamWriter f = new StreamWriter(@"D:\Repos\5_sem_SE\AA\lab_07\src\bin_search.txt"))
+            using (StreamWriter f = new StreamWriter(path + "bin_search.txt"))
             {
                 temp.Sort();
 
@@ -35,7 +37,7 @@ namespace lab_07_Dict_Search
                 }
             }
 
-            using (StreamWriter f = new StreamWriter(@"D:\Repos\5_sem_SE\AA\lab_07\src\clust_search.txt"))
+            using (StreamWriter f = new StreamWriter(path + "clust_search.txt"))
             {
                 temp.Clusterize();
 
