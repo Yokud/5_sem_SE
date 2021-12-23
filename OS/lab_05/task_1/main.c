@@ -110,7 +110,8 @@ int main()
         }
     }
 
-    for (size_t i = 0; i < PROD_CNT + CONS_CNT; i++) {
+    for (size_t i = 0; i < PROD_CNT + CONS_CNT; i++) 
+	{
         int statval;
         
         if (wait(&statval) == -1) 

@@ -11,7 +11,8 @@ struct sembuf CONS_RELEASE[] = {
     { BUFF_EMPTY, 1, 0 }
 };
 
-int consumer_run(cbuffer_t *const buf, const int sid, const int consid) {
+int consumer_run(cbuffer_t *const buf, const int sid, const int consid) 
+{
     srand(time(NULL) + consid);
 
     if (!buf)

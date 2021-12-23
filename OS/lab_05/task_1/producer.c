@@ -10,7 +10,8 @@ struct sembuf PROD_RELEASE[] = {
     { BUFF_FULL, 1, 0 }
 };
 
-int producer_run(cbuffer_t *const buf, const int sid, const int prodid, char *symb) {
+int producer_run(cbuffer_t *const buf, const int sid, const int prodid, char *symb) 
+{
     srand(time(NULL) + prodid);
 
     if (!buf)
